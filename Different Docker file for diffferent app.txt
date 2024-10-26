@@ -1,0 +1,22 @@
+** Docker file **
+
+1] For Simple Static website deployment:
+
+                          FROM nginx
+                          COPY ./ /usr/share/nginx/html
+
+2]For Nodejs app deployment:
+
+                          FROM node:lts-alpine
+                          WORKDIR /usr/app
+                          COPY package.json .
+                          RUN npm install
+                          COPY . .
+                          CMD ["npm", "start"]
+
+3] For Angular app deployment:
+
+                         FROM nginx:alpine
+                         COPY dist/my-first-project /usr/share/nginx/html
+                         EXPOSE 80
+                         CMD ["nginx", "-g", "daemon off;"]

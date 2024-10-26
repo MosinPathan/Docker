@@ -1,0 +1,28 @@
+**** Docker Main Command ***
+
+1]Build and push on docker hub on - Jenkins Master server
+
+docker build --tag=latest .   or  (docker build -t latest .)   or  (docker build .) 
+                or
+docker build -t mosinpathan/express-userapp .
+docker login -u <username>
+docker push mosinpathan/express-userapp:latest
+
+
+
+
+2]Pull and Deploy on - Docker agent server or machine
+
+docker pull mosinpathan/express-userapp:latest
+docker images
+docker run -p 3000:80 --name Nodejs-app mosinpathan/express-userapp:latest  :- Running in Attached mode or foreground
+docker run -d -p 3000:80 --name Nodejs-app mosinpathan/express-userapp:latest:- Running in Detach mode or background
+docker ps 
+docker ps -a
+docker stop [container name or id]
+docker start [container name or id]
+
+
+
+                                                                                       
+

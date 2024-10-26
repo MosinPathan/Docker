@@ -1,0 +1,53 @@
+
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+
+#  To install the latest version, run:
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# Check installed or not
+docker --version
+
+# Check status
+sudo systemctl status docker
+sudo systemctl enable docker
+sudo systemctl start docker
+
+sudo usermod -aG docker ec2-user
+cd ~
+cd /etc
+sudo vim group
+sudo docker run -it --name mycontainer nginx
+sudo docker ps -a
+sudo docker images
+
+sudo docker start my-sql-db
+sudo docker stop my-sql-db
+sudo docker rm my-sql-db
+docker image rm mysql
+
+ sudo docker container start priceless_perlman
+   
+sudo docker exec -it my-sql-db bash
+
+
+sudo docker container prune
+ sudo yum update
+ sudo yum install docker
+sudo docker run nginx                sudo -i
+
+sudo docker run -d -p 4000:4000 --name mycontainer nginx
+
+docker run -d -p 27017:27017 --name my-mongo-db mongo:latest
+docker run -d -p 3306:3306 --name my-sql-db -e MYSQL_ROOT_PASSWORD=mosin313 mysql:latest
